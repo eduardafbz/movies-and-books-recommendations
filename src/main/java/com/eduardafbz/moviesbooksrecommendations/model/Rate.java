@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Data
 @Entity
-public class Ratings {
+public class Rate {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

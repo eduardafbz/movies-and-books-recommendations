@@ -21,6 +21,6 @@ public class User {
     private Double historicalRating;
 
     @OneToMany (mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Ratings> ratings;
+    private List<Rate> ratings;
 
 }

@@ -22,6 +22,6 @@ public class Book {
     private Double averageRating;
 
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
-    private List<Ratings> ratings;
+    private List<Rate> ratings;
 
 }

@@ -22,6 +22,6 @@ public class Movie {
     private Double averageRating;
 
     @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
-    private List<Ratings> ratings;
+    private List<Rate> ratings;
 
 }
