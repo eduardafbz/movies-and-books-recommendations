@@ -25,7 +25,7 @@ public class BookService {
         return bookRepository.findAll();
     }
 
-    public Book updateMovie(Long id, Book bookDetails) {
+    public Book updateBook(Long id, Book bookDetails) {
         Book book = bookRepository.findById(id).orElseThrow();
 
         book.setTitle(bookDetails.getTitle());
