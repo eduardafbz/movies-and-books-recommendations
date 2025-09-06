@@ -1,5 +1,6 @@
 package com.eduardafbz.moviesbooksrecommendations.service;
 
+import com.eduardafbz.moviesbooksrecommendations.exceptions.ResourceNotFoundException;
 import com.eduardafbz.moviesbooksrecommendations.model.Movie;
 import com.eduardafbz.moviesbooksrecommendations.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class MovieService {
     }
 
     public Movie getMovieById(Long id) {
-        return movieRepository.findById(id).orElseThrow();
+        return movieRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Movie not found :(\n Please, try again."));
     }
 
     public List<Movie> getAllMovies() {
@@ -26,7 +27,7 @@ public class MovieService {
     }
 
     public Movie updateMovie(Long id, Movie movieDetails) {
-        Movie movie = movieRepository.findById(id).orElseThrow();
+        Movie movie = movieRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Movie not found :(\n Please, try again."));
 
         movie.setTitle(movieDetails.getTitle());
         movie.setGender(movieDetails.getGender());

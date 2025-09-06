@@ -11,10 +11,12 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Data
 @Entity
+@Table(name = "rates")
 public class Rate {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private Long id;
 
     private Double rating;

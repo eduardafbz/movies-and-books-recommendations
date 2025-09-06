@@ -1,5 +1,6 @@
 package com.eduardafbz.moviesbooksrecommendations.service;
 
+import com.eduardafbz.moviesbooksrecommendations.exceptions.ResourceNotFoundException;
 import com.eduardafbz.moviesbooksrecommendations.model.User;
 import com.eduardafbz.moviesbooksrecommendations.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class UserService {
     }
 
     public User getUserById(Long id) {
-        return userRepository.findById(id).orElseThrow();
+        return userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found :(\n Please, try again."));
     }
 
     public List<User> getAllUsers() {
@@ -26,7 +27,7 @@ public class UserService {
     }
 
     public User updateUser(Long id, User user) {
-        User userToUpdate = userRepository.findById(id).orElseThrow();
+        User userToUpdate = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found :(\n Please, try again."));
 
         userToUpdate.setUsername(user.getUsername());
 

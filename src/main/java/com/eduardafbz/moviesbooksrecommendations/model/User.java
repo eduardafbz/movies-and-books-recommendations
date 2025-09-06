@@ -11,10 +11,12 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private Long id;
 
     private String username;

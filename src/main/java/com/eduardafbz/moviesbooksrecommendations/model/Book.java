@@ -11,11 +11,14 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Entity
+@Table(name = "books")
 public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private Long id;
+
     private String title;
     private String author;
     private String gender;
